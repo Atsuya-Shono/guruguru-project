@@ -1,9 +1,9 @@
 export const Button = (props: any) => {
-  const { children } = props;
+  const { text } = props;
 
   return (
     <button>
-      {children}
+      {text}
     </button>
   )
 }

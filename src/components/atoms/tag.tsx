@@ -9,7 +9,7 @@ export const Tag = (props: any) => {
   const OnTag = () => {
     setOnFlag(!onFlag);
   };
-  console.log(onFlag);
+  //console.log(onFlag);
 
   return (
     <div>

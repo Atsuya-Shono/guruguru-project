@@ -9,7 +9,7 @@ export const PageList = () => {
       <h2>pagellist</h2>
       <Search />
       <Link to="/pagelist/page">
-        Page
+        革命居酒屋
       </Link>
     </div>
   );
