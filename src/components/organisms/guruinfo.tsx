@@ -1,44 +1,54 @@
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
+import styled from "styled-components";
+
 import { infoState } from "../store/infoState";
 
-const infos = [...Array(10).keys()].map((val) => {
-  return {
-    id: val,
-    post: "", // 投稿日
-    views: 0, // 閲覧回数  
-    name: `革命居酒屋第` + val + `号店`,  images: ["", "", ""], // 画像,path or url
-    budet: "￥100", // 予算
-    opening: "0:00 ~ 24:00", // 営業時間
-    map: "", // 地図(画像？)
-    comments: ["おいしい", "こすぱよし", "てんいんがいい"], // 一言コメント
-    tags: ["海鮮", "肉", "中華", "日本酒"], // タグ,string
-    target: "革命児", // 目的
-    recommend: ["", "", ""] // 類似ページid
-  
-  };
-});
+import { InfoData } from "../data/infoData";
 
 export const GuruInfo = () => {
-
-  //onst { id } = props;
-  // console.log(infos[val].id);
-  //const id = 2;
-  const id = useRecoilValue(infoState);
-  console.log(id);
+  const [id, setInfoState] = useRecoilState(infoState);
 
   return (
     <div>
-      <h2>{infos[id].name}</h2>
-      <img height={180} width={180} src={infos[id].images[0]} />
-      <dl>
-        <dt>予算:</dt>
-        <dl>{infos[id].budet}</dl>
-        <dt>営業時間・定休日:</dt>
-        <dl>{infos[id].opening}</dl>
-        <dt>マップ:</dt>
-        <dl>{infos[id].map}</dl>
-      </dl>
+      <h2> {InfoData[id].name}</h2>{" "}
+      <img height={250} width={400} src={InfoData[id].images[0]} />
+      <STable>
+        <tr>
+          <td>予算:</td>
+          <td> {InfoData[id].budet}</td>
+        </tr>
+        <tr>
+          <td>営業時間・定休日:</td>
+          <td> {InfoData[id].opening}</td>
+        </tr>
+        <tr>
+          <td>マップ:</td>
+          <td> {InfoData[id].map}</td>
+        </tr>
+      </STable>
     </div>
   );
+};
+
+const STable = styled.table`
+border-collapse: collapse;
+border-spacing: 0;
+width: 30%;
+text-align: center;
+align-items: center;
+margin: 0 auto;
+
+tr {
+border-bottom: solid 1px #eee;
+// cursor: pointer;
+hover: background-color: #d4f0fd;
 }
 
+th,
+td {
+text-align: center;
+width: 25%;
+padding: 15px 0;
+
+}
+`;

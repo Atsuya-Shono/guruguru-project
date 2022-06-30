@@ -19,14 +19,18 @@ export const Tag = (props: any) => {
   );
 }
 
-const OnButton = styled.button`
-  background-color: rgb(200, 120, 120);
+ const BaseTag = styled.button`
   border: none;
   outline: none;
+  margin: 5px;
+  border-radius: 30px;
+  min-width: 50px;
+`;
+
+const OnButton = styled(BaseTag)`
+  background-color: rgb(200, 120, 120);
 `
 
-const OffButton = styled.button`
+const OffButton = styled(BaseTag)`
   background-color: rgb(180, 180, 180);
-  border: none;
-  outline: none;
 `

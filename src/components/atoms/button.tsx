@@ -1,9 +1,16 @@
-export const Button = (props: any) => {
+import styled from "styled-components"
+export const Button = (props: any) =>
+{
   const { text } = props;
 
   return (
-    <button>
+    <SButton>
       {text}
-    </button>
+    </SButton>
   )
 }
+
+const SButton = styled.button`
+    align-items: center;
+    margin 10px;
+`;

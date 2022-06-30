@@ -4,7 +4,7 @@ export const Top = () => {
 
   return (
     <h1>
-      top
+      Top
     </h1>
   );
 

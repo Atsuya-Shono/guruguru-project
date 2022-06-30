@@ -6,8 +6,8 @@ export const Page = () => {
 
   return (
     <div>
-      <h2>page</h2>
+      <h1>飲食店情報</h1>
       <GuruInfo />
     </div>
   );
-}
+};

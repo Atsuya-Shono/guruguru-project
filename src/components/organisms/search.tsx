@@ -1,14 +1,20 @@
-import { Button } from "../atoms/button";
-import { Input } from "../atoms/input";
+import styled from "styled-components"
+import { Input } from "../molecules/input";
 import { Tags } from "../molecules/tags"
 
 export const Search = () => {
-  return (
-    <div>
-      <Input />
-      {/* <Button>Search</Button> */}
-      <Button text = "Search"/>
-      <Tags />
-    </div>
-  );
+return (
+<SContainer>
+  <Input />
+  <Tags />
+</SContainer>
+);
 }
+
+const SContainer = styled.div`
+display: block;
+align-items: center;
+margin 0 auto;
+text-align: center;
+font-size: 120%;
+`;
