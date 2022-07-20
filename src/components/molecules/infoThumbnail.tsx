@@ -1,17 +1,30 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { InfoData } from "../data/infoData";
 import { Card } from "../atoms/card";
+import { infoState } from "../store/infoState";
 
-export const InfoThumbnail = (props: any) => {
-  const { id } = props;
+type Props = {
+  id: number;
+};
+
+export const InfoThumbnail = (props: Props) => {
+  const { id } = props; //リクエストされたid
+  const setInfoState = useSetRecoilState(infoState); //
 
   return (
-    <SContainer>
-      <Card>
-        <h3>{InfoData[id].name}</h3>
-        <img height={240} width={400} src={InfoData[id].images[0]} />
-      </Card>
-    </SContainer>
+    <>
+      <Link to="/pagelist/page" onClick={() => setInfoState(id)}>
+        <SContainer>
+          <Card>
+            <h3>{InfoData[id].name}</h3>
+            <img height={240} width={400} src={InfoData[id].images[0]} />
+          </Card>
+        </SContainer>
+      </Link>
+    </>
   );
 };
 

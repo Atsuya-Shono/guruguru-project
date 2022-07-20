@@ -1,49 +1,29 @@
 // import { Button } from "../atoms/button";
 // import { Input } from "../atoms/input";
-import { Link } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
+// import { Link } from "react-router-dom";
+// import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { InfoThumbnail } from "../molecules/infoThumbnail";
+// import { InfoThumbnail } from "../molecules/infoThumbnail";
+import { InfoThumbnails } from "../organisms/infoThumbnails";
 import { Search } from "../organisms/search";
-import { infoState } from "../store/infoState";
+// import { infoState } from "../store/infoState";
 
 export const PageList = () => {
-  const setInfoState = useSetRecoilState(infoState);
+  // const [id, setInfoState] = useRecoilState(infoState);
+  // const ids = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
     <>
       <h1>飲食店検索</h1>
       <SContainer>
-        {/* <SLi> */}
         <Search />
-        {/* </SLi> */}
-        <ul>
-          <SLi>
-            <Link to="/pagelist/page" onClick={() => setInfoState(1)}>
-              <InfoThumbnail id={1} />
-            </Link>
-          </SLi>
-          <SLi>
-            <Link to="/pagelist/page" onClick={() => setInfoState(2)}>
-              <InfoThumbnail id={2} />
-            </Link>
-          </SLi>
-          <SLi>
-            <Link to="/pagelist/page" onClick={() => setInfoState(3)}>
-              <InfoThumbnail id={3} />
-            </Link>
-          </SLi>
-        </ul>
+        <InfoThumbnails />
       </SContainer>
     </>
   );
 };
 
 const SContainer = styled.div`
-  // display: block;
-  // align-items: center;
-  // padding 10px;
-  // display: table;
   width: 100%;
   display: flex;
   flex-direction: column;

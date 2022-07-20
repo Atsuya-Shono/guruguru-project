@@ -10,7 +10,7 @@ export const GuruInfo = () => {
 
   return (
     <div>
-      <h2> {InfoData[id].name}</h2>{" "}
+      <h2> {InfoData[id].name}</h2>
       <img height={250} width={400} src={InfoData[id].images[0]} />
       <STable>
         <tr>

@@ -1,15 +1,20 @@
+//検索に使うタグボタン
 import { useState } from "react";
 import styled from "styled-components";
-import { RecoilRoot } from "recoil"
+// import { RecoilRoot } from "recoil"
 
-export const Tag = (props: any) => {
+type Props = {
+  text: string;
+};
+
+export const Tag = (props: Props) => {
   const { text } = props;
   const [onFlag, setOnFlag] = useState(false);
 
+  //切り替え
   const OnTag = () => {
     setOnFlag(!onFlag);
   };
-  //console.log(onFlag);
 
   return (
     <div>
@@ -17,9 +22,10 @@ export const Tag = (props: any) => {
       {onFlag && <OnButton onClick={OnTag}>{text}</OnButton>}
     </div>
   );
-}
+};
 
- const BaseTag = styled.button`
+//デフォルトスタイル
+const BaseTag = styled.button`
   border: none;
   outline: none;
   margin: 5px;
@@ -27,10 +33,12 @@ export const Tag = (props: any) => {
   min-width: 50px;
 `;
 
+//ONのスタイル
 const OnButton = styled(BaseTag)`
-  background-color: rgb(200, 120, 120);
-`
+  background-color: rgb(255, 200, 200);
+`;
 
+//OFFのスタイル
 const OffButton = styled(BaseTag)`
   background-color: rgb(180, 180, 180);
-`
+`;
